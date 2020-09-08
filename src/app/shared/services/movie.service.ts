@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { Movie } from '../models/movie';
-import { tap } from 'rxjs/operators';
+import { Movie, MovieImpl } from '../models/movie';
+import { map, tap } from 'rxjs/operators';
 import { ResultApi } from '../models/result-api';
 
 @Injectable( {
@@ -18,10 +18,14 @@ export class MovieService {
   ) {
   }
 
-  findByTitle(title: string, page: number): Observable<ResultApi<Movie>> {
-    return this.http.get<ResultApi<Movie>>( this.baseUrl + 'search/movie?query=' + title + '&page=' + page )
+  findByTitle(title: string, page: number): Observable<ResultApi<MovieImpl>> {
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'search/movie?query=' + title + '&page=' + page )
       .pipe(
-        tap( r => r.results.filter(m => m.poster_path).forEach( v => v.poster_path = environment.apiImageUrl + v.poster_path ) )
+        map( r => {
+          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          return r;
+        } ),
+        tap(console.log),
       );
   }
 

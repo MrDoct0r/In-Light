@@ -1,11 +1,13 @@
 <ng-container *ngIf="(result$ | async) as result; else loading">
-  <h1>Recherche de : {{searchString}}</h1>
+  <h1>Recherche de : &laquo; {{searchString}} &raquo;</h1>
+  <i>{{result.total_results}} résultats &#8226; Page {{result.page}} sur {{result.total_pages}}</i>
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
 
     <ng-container *ngIf="result.results.length > 0; else noData">
       <ng-container *ngFor="let m of result.results">
-        <img *ngIf="m.poster_path" [src]="m.poster_path" [alt]="m.title"
-             [matTooltip]="m.title + ' (' + m.release_date + ')'" [routerLink]="m.id" class="rounded poster">
+        <img *ngIf="m.poster_path" [src]="m.fullPosterPath" [alt]="m.title"
+             [matTooltip]="m.title + ' (' + (m.releaseDate | date: 'yyyy') + ')'" [routerLink]="m.id"
+             class="rounded poster">
       </ng-container>
     </ng-container>
 

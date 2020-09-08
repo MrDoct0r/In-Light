@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { MovieService } from '../../shared/services/movie.service';
 import { Observable } from 'rxjs';
-import { Movie } from '../../shared/models/movie';
+import { MovieImpl } from '../../shared/models/movie';
 import { ResultApi } from '../../shared/models/result-api';
 
 @Component( {
@@ -12,7 +12,7 @@ import { ResultApi } from '../../shared/models/result-api';
   styleUrls: ['./movies.component.scss']
 } )
 export class MoviesComponent implements OnInit {
-  public result$: Observable<ResultApi<Movie>>;
+  public result$: Observable<ResultApi<MovieImpl>>;
   public searchString: string;
 
   constructor(
