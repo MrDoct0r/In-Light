@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { ResultApi } from 'src/app/shared/models/result-api';
 import { Movie } from 'src/app/shared/models/movie';
 import { MovieService } from 'src/app/shared/services/movie.service';
-import { CardsComponent } from '../movies/cards/cards.component';
+import { TilesComponent } from '../movies/tiles/tiles.component';
 
 @Component({
   selector: 'app-home',
