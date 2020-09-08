@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { MovieService } from '../../shared/services/movie.service';
@@ -12,7 +12,7 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 } )
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit {  
   public result$: Observable<ResultApi<MovieImpl>>;
   public searchString: string;
 
