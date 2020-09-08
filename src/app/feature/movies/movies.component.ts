@@ -24,7 +24,6 @@ export class MoviesComponent implements OnInit {
       filter( p => !!p.search ),
       map( p => p.search ),
       switchMap( s => this.movieService.findByTitle( s, 1 ) ),
-      tap(console.log),
     );
   }
 

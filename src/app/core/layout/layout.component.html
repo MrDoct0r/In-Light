@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" fxLayout="row wrap" fxLayoutAlign="space-between center">
+  <span>tp-angular</span>
+  <div>
+    <button mat-button routerLink="/">Accueil</button>
+    <button mat-button routerLink="/mes-films">Mes films</button>
+    <mat-form-field floatLabel="never">
+      <input type="text"
+             placeholder="Rechercher"
+             aria-label="Number"
+             matInput
+             (keyup.enter)="search()"
+             [formControl]="mySearchControl">
+    </mat-form-field>
+
+  </div>
+
+</mat-toolbar>
+<router-outlet></router-outlet>
