@@ -5,6 +5,7 @@ import { MovieService } from '../../shared/services/movie.service';
 import { Observable } from 'rxjs';
 import { MovieImpl } from '../../shared/models/movie';
 import { ResultApi } from '../../shared/models/result-api';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component( {
   selector: 'app-movies',
@@ -27,8 +28,10 @@ export class MoviesComponent implements OnInit {
       map( p => p.search ),
       tap( s => this.searchString = s ),
       switchMap( s => this.movieService.findByTitle( s, 1 ) ),
-      tap( console.log ),
     );
   }
 
+  changePage($event: PageEvent): void {
+    this.result$ = this.movieService.findByTitle( this.searchString, $event.pageIndex + 1 );
+  }
 }
