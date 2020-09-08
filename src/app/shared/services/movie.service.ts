@@ -25,7 +25,6 @@ export class MovieService {
           r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
-        tap(console.log),
       );
   }
 

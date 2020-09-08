@@ -12,6 +12,11 @@
     </ng-container>
 
   </div>
+  <mat-paginator [length]="result.total_results"
+                 [pageSize]="20"
+                 [hidePageSize]="true"
+                 (page)="changePage($event)" showFirstLastButtons>
+  </mat-paginator>
 </ng-container>
 
 <ng-template #loading>
