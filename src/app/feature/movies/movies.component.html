@@ -1,0 +1,13 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+  <ng-container *ngIf="(movies$ | async) as movies; else loading">
+    <ng-container *ngIf="movies.length > 0; else noData">
+      <ng-container *ngFor="let m of movies">
+        <img *ngIf="m.Poster !== 'N/A'" [src]="m.Poster" [alt]="m.Title" [matTooltip]="m.Title + ' (' + m.Year + ')'" [routerLink]="m.imdbID" class="rounded poster">
+      </ng-container>
+    </ng-container>
+
+  </ng-container>
+</div>
+
+<ng-template #loading><mat-spinner></mat-spinner></ng-template>
+<ng-template #noData>Aucun film ne correspond à votre recherche</ng-template>
