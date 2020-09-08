@@ -3,36 +3,29 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie';
-import { map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
+import { ResultApi } from '../models/result-api';
 
 @Injectable( {
   providedIn: 'root'
 } )
 export class MovieService {
 
-  private baseUrl = `${environment.omdbApi}`;
+  private baseUrl = `${environment.apiURL}`;
 
   constructor(
     private http: HttpClient,
   ) {
   }
 
-  findByTitle(title: string, page: number): Observable<Array<Movie>> {
-    return this.http
-      .get<{ Response: string, Search?: Array<Movie>, totalResults: string }>( this.baseUrl + 's=' + title + '&type=movie&p=' + page )
+  findByTitle(title: string, page: number): Observable<ResultApi<Movie>> {
+    return this.http.get<ResultApi<Movie>>( this.baseUrl + 'search/movie?query=' + title + '&page=' + page )
       .pipe(
-        map( r => {
-          if ( r.Response === 'True' ) {
-            return r.Search;
-          } else {
-            return [];
-          }
-        } ),
-        map( r => r.filter( v => v.Poster !== 'N/A' ) )
+        tap( r => r.results.filter(m => m.poster_path).forEach( v => v.poster_path = 'https://image.tmdb.org/t/p/w500/' + v.poster_path ) )
       );
   }
 
-  findById(id: string): Observable<Movie> {
-    return this.http.get<Movie>( this.baseUrl + 'i=' + id + '&type=movie' );
+  getById(id: string): Observable<Movie> {
+    return this.http.get<Movie>( this.baseUrl + 'movie/' + id );
   }
 }

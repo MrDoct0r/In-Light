@@ -4,6 +4,7 @@ import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { MovieService } from '../../shared/services/movie.service';
 import { Observable } from 'rxjs';
 import { Movie } from '../../shared/models/movie';
+import { ResultApi } from '../../shared/models/result-api';
 
 @Component( {
   selector: 'app-movies',
@@ -11,7 +12,7 @@ import { Movie } from '../../shared/models/movie';
   styleUrls: ['./movies.component.scss']
 } )
 export class MoviesComponent implements OnInit {
-  public movies$: Observable<Array<Movie>>;
+  public result$: Observable<ResultApi<Movie>>;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,10 +21,11 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.movies$ = this.route.queryParams.pipe(
+    this.result$ = this.route.queryParams.pipe(
       filter( p => !!p.search ),
       map( p => p.search ),
       switchMap( s => this.movieService.findByTitle( s, 1 ) ),
+      tap(console.log),
     );
   }
 

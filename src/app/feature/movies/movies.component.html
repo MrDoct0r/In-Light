@@ -1,8 +1,8 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
-  <ng-container *ngIf="(movies$ | async) as movies; else loading">
-    <ng-container *ngIf="movies.length > 0; else noData">
-      <ng-container *ngFor="let m of movies">
-        <img *ngIf="m.Poster !== 'N/A'" [src]="m.Poster" [alt]="m.Title" [matTooltip]="m.Title + ' (' + m.Year + ')'" [routerLink]="m.imdbID" class="rounded poster">
+  <ng-container *ngIf="(result$ | async) as result; else loading">
+    <ng-container *ngIf="result.results.length > 0; else noData">
+      <ng-container *ngFor="let m of result.results">
+        <img *ngIf="m.poster_path" [src]="m.poster_path" [alt]="m.title" [matTooltip]="m.title + ' (' + m.release_date + ')'" [routerLink]="m.id" class="rounded poster">
       </ng-container>
     </ng-container>
 

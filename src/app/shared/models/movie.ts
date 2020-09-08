@@ -1,27 +1,13 @@
+import { Genre } from './genre';
+
 export interface Movie {
-  Title: string;
-  Year: string;
-  Rated: string;
-  Released: string;
-  Runtime: string;
-  Genre: string;
-  Director: string;
-  Writer: string;
-  Actors: string;
-  Plot: string;
-  Language: string;
-  Country: string;
-  Awards: string;
-  Poster: string;
-  Ratings: {Source: string, Value: string}[];
-  Metascore: string;
-  imdbRating: string;
-  imdbID: string;
-  Type: string;
-  DVD: string;
-  BoxOffice: string;
-  Production: string;
-  Website: string;
-  Response?: string;
-  Error?: string;
+  id: number;
+  title: string;
+  overview: string;
+  popularity: string;
+  release_date: Date;
+  vote_average: number;
+  poster_path: string;
+  genres: Array<Genre>;
+  homepage: string;
 }
