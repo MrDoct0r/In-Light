@@ -12,6 +12,7 @@ export class ApiInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let newParams = new HttpParams( { fromString: request.params.toString() } );
     newParams = newParams.append( 'api_key', environment.apiKey );
+    newParams = newParams.append( 'language', 'fr' );
 
     const requestClone = request.clone( {
       params: newParams
