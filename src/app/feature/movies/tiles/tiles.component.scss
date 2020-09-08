@@ -1,0 +1,36 @@
+.tile{
+    display: block;
+}
+
+.tile, .tile-movie-infos{
+    width: 300px;
+    height: 450px;
+}
+
+.tile-poster:hover {
+    cursor: pointer;
+}
+
+.tile:hover .tile-movie-infos{
+    visibility: visible;
+    transition: overflow .2s ease;
+}
+
+.tile-movie-title{
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.tile-movie-year{
+    font-style: italic;
+    color: darkslategrey;
+}
+
+.tile-movie-infos{
+    visibility: hidden;
+    background-color: #ffffffcc;
+    position: absolute;
+    width: 280px;
+    padding: 10px;
+}

@@ -1,11 +1,11 @@
 <ng-container *ngIf="(result$ | async) as movies; else loading">
-  <h1>Recherche de : &laquo; {{searchString}} &raquo;</h1>
+  <h1>Films correspondants à : &laquo; {{searchString}} &raquo;</h1>
   <i>{{movies.total_results}} résultats &#8226; Page {{movies.page}} sur {{movies.total_pages}}</i>
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
 
     <ng-container *ngIf="movies.results.length > 0; else noData">
       <ng-container *ngFor="let movie of movies.results">
-        <app-cards [movie]="movie"></app-cards>
+        <app-tiles [movie]="movie"></app-tiles>
       </ng-container>
     </ng-container>
 

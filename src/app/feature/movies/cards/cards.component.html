@@ -1,6 +1,0 @@
-<img *ngIf="movie.poster_path" class="rounded poster"
-        [src]="movie.fullPosterPath"
-        [alt]="movie.title"
-        [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'" 
-        [routerLink]="movie.id"
->
