@@ -1,1 +1,39 @@
-<p>home works!</p>
+<h1>Bienvenue !</h1>
+<ng-container *ngIf="(latestMovies$ | async) as latestMovies; else loading">
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+        <ng-container *ngIf="latestMovies.results.length > 0; else noData">
+            <h2>Les plus récents</h2>
+            <ng-container *ngFor="let movie of latestMovies.results | slice:0:4">
+                <!-- NEED TO IMPORT CARD COMPONENT -->
+                <!-- <app-cards [movie]="movie"></app-cards> -->
+                <img *ngIf="movie.poster_path" class="rounded poster" [src]="movie.fullPosterPath" [alt]="movie.title"
+                    [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
+                    [routerLink]="movie.id">
+            </ng-container>
+        </ng-container>
+
+    </div>
+</ng-container>
+
+<ng-container *ngIf="(popularMovies$ | async) as popularMovies; else loading">
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+
+        <ng-container *ngIf="popularMovies.results.length > 0; else noData">
+            <h2>Les plus populaires</h2>
+            <ng-container *ngFor="let movie of popularMovies.results | slice:0:4">
+                <!-- NEED TO IMPORT CARD COMPONENT -->
+                <!-- <app-cards [movie]="movie"></app-cards> -->
+                <img *ngIf="movie.poster_path" class="rounded poster" [src]="movie.fullPosterPath" [alt]="movie.title"
+                    [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
+                    [routerLink]="movie.id">
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-container>
+
+
+
+<ng-template #loading>
+    <mat-spinner></mat-spinner>
+</ng-template>
+<ng-template #noData>Aucun film dans la base de donnée</ng-template>

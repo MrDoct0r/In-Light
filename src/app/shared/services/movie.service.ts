@@ -19,7 +19,17 @@ export class MovieService {
   }
 
   getLatest(): Observable<ResultApi<MovieImpl>> {
-    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'search/movie?sort_by=release_date.desc' )
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=release_date.desc' )
+      .pipe(
+        map( r => {
+          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          return r;
+        } ),
+      );
+  }
+
+  getPopular(): Observable<ResultApi<MovieImpl>> {
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=popularity.desc' )
       .pipe(
         map( r => {
           r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
