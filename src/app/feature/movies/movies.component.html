@@ -1,13 +1,18 @@
-<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
-  <ng-container *ngIf="(result$ | async) as result; else loading">
+<ng-container *ngIf="(result$ | async) as result; else loading">
+  <h1>Recherche de : {{searchString}}</h1>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+
     <ng-container *ngIf="result.results.length > 0; else noData">
       <ng-container *ngFor="let m of result.results">
-        <img *ngIf="m.poster_path" [src]="m.poster_path" [alt]="m.title" [matTooltip]="m.title + ' (' + m.release_date + ')'" [routerLink]="m.id" class="rounded poster">
+        <img *ngIf="m.poster_path" [src]="m.poster_path" [alt]="m.title"
+             [matTooltip]="m.title + ' (' + m.release_date + ')'" [routerLink]="m.id" class="rounded poster">
       </ng-container>
     </ng-container>
 
-  </ng-container>
-</div>
+  </div>
+</ng-container>
 
-<ng-template #loading><mat-spinner></mat-spinner></ng-template>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
 <ng-template #noData>Aucun film ne correspond à votre recherche</ng-template>

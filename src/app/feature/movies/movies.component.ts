@@ -13,6 +13,7 @@ import { ResultApi } from '../../shared/models/result-api';
 } )
 export class MoviesComponent implements OnInit {
   public result$: Observable<ResultApi<Movie>>;
+  public searchString: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +25,9 @@ export class MoviesComponent implements OnInit {
     this.result$ = this.route.queryParams.pipe(
       filter( p => !!p.search ),
       map( p => p.search ),
+      tap( s => this.searchString = s ),
       switchMap( s => this.movieService.findByTitle( s, 1 ) ),
-      tap(console.log),
+      tap( console.log ),
     );
   }
 
