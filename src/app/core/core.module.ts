@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ApiInterceptor } from './http/api.interceptor';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule( {
@@ -16,6 +17,7 @@ import { ApiInterceptor } from './http/api.interceptor';
     HttpClientModule,
     SharedModule,
     LayoutModule,
+    TranslateModule.forRoot(),
   ],
   providers: [
     // Ajout de api_key
