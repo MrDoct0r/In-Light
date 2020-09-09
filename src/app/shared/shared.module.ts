@@ -4,10 +4,13 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TilesComponent } from './components/tiles/tiles.component';
 
 
 @NgModule( {
-  declarations: [],
+  declarations: [
+    TilesComponent,
+  ],
   exports: [
     CommonModule,
     ReactiveFormsModule,
@@ -15,6 +18,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     MaterialModule,
     FlexLayoutModule,
+    TilesComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule,
   ]
 } )
 export class SharedModule {
