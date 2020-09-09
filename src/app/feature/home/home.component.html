@@ -2,16 +2,6 @@
     <div class="row">
         <h1>Bienvenue !</h1>
     </div>
-    <ng-container *ngIf="(latestMovies$ | async) as latestMovies; else loading">
-        <div class="row">
-            <ng-container *ngIf="latestMovies.results.length > 0; else noData">
-                <h2>Les plus récents</h2>
-                <ng-container *ngFor="let movie of latestMovies.results | slice:0:4">
-                    <app-tiles [movie]="movie"></app-tiles>
-                </ng-container>
-            </ng-container>
-        </div>
-    </ng-container>
     
     <ng-container *ngIf="(popularMovies$ | async) as popularMovies; else loading">
         <div class="row">
@@ -24,6 +14,17 @@
         </div>
     </ng-container>
     
+    <ng-container *ngIf="(latestMovies$ | async) as latestMovies; else loading">
+        <div class="row">
+            <ng-container *ngIf="latestMovies.results.length > 0; else noData">
+                <h2>Les dernier ajouts</h2>
+                <ng-container *ngFor="let movie of latestMovies.results | slice:0:4">
+                    <app-tiles [movie]="movie"></app-tiles>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+
     <ng-template #loading>
         <mat-spinner></mat-spinner>
     </ng-template>
