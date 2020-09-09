@@ -6,6 +6,7 @@ import { MaterialModule } from './modules/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TilesComponent } from './components/tiles/tiles.component';
 import { SettingsDialogComponent } from './components/settings-dialog/settings-dialog.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule( {
@@ -21,6 +22,7 @@ import { SettingsDialogComponent } from './components/settings-dialog/settings-d
     MaterialModule,
     FlexLayoutModule,
     TilesComponent,
+    TranslateModule,
   ],
   imports: [
     ReactiveFormsModule,
@@ -28,6 +30,7 @@ import { SettingsDialogComponent } from './components/settings-dialog/settings-d
     CommonModule,
     MaterialModule,
     RouterModule,
+    TranslateModule,
   ]
 } )
 export class SharedModule {

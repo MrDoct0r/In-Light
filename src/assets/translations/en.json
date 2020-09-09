@@ -1,0 +1,11 @@
+{
+  "navBar": {
+    "home": "Home",
+    "bookmarks": "My bookmarks"
+  },
+  "home": {
+    "welcome": "Welcome !",
+    "mostPopular": "The most popular movies",
+    "lastAdded": "The last added movies"
+  }
+}

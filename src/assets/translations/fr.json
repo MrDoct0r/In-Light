@@ -1,0 +1,11 @@
+{
+  "navBar": {
+    "home": "Accueil",
+    "bookmarks": "Mes favoris"
+  },
+  "home": {
+    "welcome": "Bienvenue !",
+    "mostPopular": "Les films populaires",
+    "lastAdded": "Les denrier films ajoutés"
+  }
+}
