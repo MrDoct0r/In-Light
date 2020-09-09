@@ -18,6 +18,7 @@
       </div>
     </ng-container>
     <mat-paginator
+      *ngIf="movies.results.length > 0"
       [length]="movies.total_results"
       [pageSize]="20"
       [hidePageSize]="true"
@@ -31,4 +32,11 @@
 <ng-template #loading>
   <mat-spinner></mat-spinner>
 </ng-template>
-<ng-template #noData>{{ 'general.movieNotFound' | translate }}</ng-template>
+<ng-template #noData>
+  <div class="row" class="search-not-found">
+    <img src="assets\img\torn.png" width="250" alt="no-movies" />
+    <h2>
+      {{ "general.movieNotFound" | translate }}
+    </h2>
+  </div>
+</ng-template>
