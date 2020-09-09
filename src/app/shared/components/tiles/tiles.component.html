@@ -1,4 +1,4 @@
-<div class="tile">
+<div class="tile" [routerLink]="movie.id" >
   <div class="tile-movie-infos">
           <div class="tile-movie-title">{{movie.title}}</div>
           <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
@@ -10,6 +10,5 @@
     [src]="(movie.fullPosterPath ? movie.fullPosterPath : 'src\assets\img\no-image.png')"
     [alt]="movie.title"
     [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
-    [routerLink]="movie.id"
   />
 </div>
