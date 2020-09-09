@@ -1,20 +1,31 @@
-<ng-container *ngIf="(result$ | async) as movies; else loading">
-  <h1>Films correspondants à : &laquo; {{searchString}} &raquo;</h1>
-  <i>{{movies.total_results}} résultats &#8226; Page {{movies.page}} sur {{movies.total_pages}}</i>
-  <div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayoutGap="10px">
+<ng-container *ngIf="result$ | async as movies; else loading">
+  <div class="container">
+    <div class="row">
+      <h1>
+        Films correspondants à : &laquo; {{ searchString }} &raquo;
+        <small class="text-muted"
+          >{{ movies.total_results }} résultats &#8226; Page
+          {{ movies.page }} sur {{ movies.total_pages }}</small
+        >
+      </h1>
+    </div>
 
     <ng-container *ngIf="movies.results.length > 0; else noData">
-      <ng-container *ngFor="let movie of movies.results">
-        <app-tiles [movie]="movie"></app-tiles>
-      </ng-container>
+      <div class="row">
+        <ng-container *ngFor="let movie of movies.results">
+          <app-tiles [movie]="movie"></app-tiles>
+        </ng-container>
+      </div>
     </ng-container>
-
+    <mat-paginator
+      [length]="movies.total_results"
+      [pageSize]="20"
+      [hidePageSize]="true"
+      (page)="changePage($event)"
+      showFirstLastButtons
+    >
+    </mat-paginator>
   </div>
-  <mat-paginator [length]="movies.total_results"
-                 [pageSize]="20"
-                 [hidePageSize]="true"
-                 (page)="changePage($event)" showFirstLastButtons>
-  </mat-paginator>
 </ng-container>
 
 <ng-template #loading>
