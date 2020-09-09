@@ -1,0 +1,16 @@
+{
+  "general": {
+    "search": "Rechercher",
+    "noData": "Aucun film n'a été récupéré :'("
+  },
+  "navBar": {
+    "home": "Accueil",
+    "categories": "Catégories",
+    "bookmarks": "Mes favoris"
+  },
+  "home": {
+    "welcome": "Bienvenue !",
+    "mostPopular": "Les films populaires",
+    "lastAdded": "Les derniers films ajoutés"
+  }
+}

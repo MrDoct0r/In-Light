@@ -1,6 +1,11 @@
 {
+  "general": {
+    "search": "Search",
+    "noData": "There is no movies loaded :'("
+  },
   "navBar": {
     "home": "Home",
+    "categories": "Categories",
     "bookmarks": "My bookmarks"
   },
   "home": {
