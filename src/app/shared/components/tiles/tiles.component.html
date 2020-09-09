@@ -1,8 +1,9 @@
-<div class="tile" [routerLink]="movie.id" >
+<div [routerLink]="movie.id" class="tile">
   <div class="tile-movie-infos">
-          <div class="tile-movie-title">{{movie.title}}</div>
-          <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
-          <p class="tile-movie-overview">{{movie.overview ? movie.overview : 'Aucun synopsys renseigné dans votre langue'}}</p>
+    <div class="tile-movie-title">{{movie.title}}</div>
+    <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
+    <p
+      class="tile-movie-overview">{{movie.overview ? movie.overview : 'Aucun synopsys renseigné dans votre langue'}}</p>
   </div>
   <img
     *ngIf="movie.poster_path"

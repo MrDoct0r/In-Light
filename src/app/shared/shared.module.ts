@@ -22,6 +22,7 @@ import { TilesComponent } from './components/tiles/tiles.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
   ]
 } )
 export class SharedModule {
