@@ -10,7 +10,9 @@
              (keyup.enter)="search()"
              [formControl]="mySearchControl">
     </mat-form-field>
-
+    <button mat-icon-button>
+      <mat-icon (click)='openSettingsDialog()'>settings</mat-icon>
+    </button>
   </div>
 
 </mat-toolbar>

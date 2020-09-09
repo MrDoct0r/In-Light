@@ -24,6 +24,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 @NgModule( {
@@ -55,6 +58,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatAutocompleteModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,
   ]
 } )
 export class MaterialModule {

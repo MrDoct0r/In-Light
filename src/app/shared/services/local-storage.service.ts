@@ -6,4 +6,11 @@ import { Injectable } from '@angular/core';
 export class LocalStorageService {
 
   constructor() { }
+
+  getAdultViewSettings(): string {
+    return localStorage.getItem("showAdultContent");
+  }
+  getLanguageSettings(): string {
+    return localStorage.getItem("language");
+  }
 }

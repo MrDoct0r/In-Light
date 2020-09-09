@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { SettingsDialogComponent } from 'src/app/shared/components/settings-dialog/settings-dialog.component';
 
 @Component( {
   selector: 'app-layout',
@@ -12,7 +14,14 @@ export class LayoutComponent {
 
   constructor(
     private router: Router,
+    private dialog: MatDialog
   ) {
+  }
+  
+  openSettingsDialog(): void {
+    this.dialog.open(SettingsDialogComponent, {
+      width: '250px'
+    });
   }
 
   search(): void {

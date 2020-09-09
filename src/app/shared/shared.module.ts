@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './modules/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TilesComponent } from './components/tiles/tiles.component';
+import { SettingsDialogComponent } from './components/settings-dialog/settings-dialog.component';
 
 
 @NgModule( {
   declarations: [
     TilesComponent,
+    SettingsDialogComponent,
   ],
   exports: [
     CommonModule,
@@ -21,7 +23,10 @@ import { TilesComponent } from './components/tiles/tiles.component';
     TilesComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
     CommonModule,
+    MaterialModule,
     RouterModule,
   ]
 } )
