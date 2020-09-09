@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>Mes paramètres</h1>
+<h1 mat-dialog-title>{{ 'settings.mySettings' | translate }}</h1>
 <div mat-dialog-content>
-    <mat-label>Afficher le contenu pour adulte ?</mat-label>
-    <mat-slide-toggle [(ngModel)]="showAdultContent" matInput>Oui / Non</mat-slide-toggle>
+    <mat-label>{{ 'settings.adultContent' | translate }}</mat-label>
+    <mat-slide-toggle [(ngModel)]="showAdultContent" matInput>{{ 'general.yesNo' | translate }}</mat-slide-toggle>
   <mat-form-field>
-    <mat-label>Choix de la langue</mat-label>
+    <mat-label>{{ 'settings.language' | translate }}</mat-label>
     <mat-select [(ngModel)]="language">
       <mat-option value="en">English</mat-option>
       <mat-option value="fr">Français</mat-option>
@@ -11,6 +11,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button>Annuler</button>
-  <button mat-button cdkFocusInitial>Valider</button>
+  <button mat-button (click)="onCancelClick()">{{ 'general.cancel' | translate }}</button>
+  <button mat-button (click)="onSubmitClick()" cdkFocusInitial>{{ 'general.validate' | translate }}</button>
 </div>

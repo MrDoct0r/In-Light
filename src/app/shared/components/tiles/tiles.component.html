@@ -3,7 +3,7 @@
     <div class="tile-movie-title">{{movie.title}}</div>
     <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
     <p
-      class="tile-movie-overview">{{movie.overview ? movie.overview : 'Aucun synopsys renseigné dans votre langue'}}</p>
+      class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}</p>
   </div>
   <img
     *ngIf="movie.poster_path"

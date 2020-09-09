@@ -20,12 +20,14 @@ export class LayoutComponent {
   
   openSettingsDialog(): void {
     this.dialog.open(SettingsDialogComponent, {
-      width: '250px'
+      width: '300px'
     });
   }
 
   search(): void {
-    this.router.navigate( ['/films'], { queryParams: { search: this.mySearchControl.value } } );
+    this.router.navigate( ['/movies'], { queryParams: { search: this.mySearchControl.value } } );
   }
+
+
 
 }

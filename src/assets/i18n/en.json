@@ -1,7 +1,12 @@
 {
   "general": {
+    "cancel": "Cancel",
+    "noData": "There is no movies loaded :'(",
     "search": "Search",
-    "noData": "There is no movies loaded :'("
+    "validate": "Validate",
+    "movieNotFound": "No movie was found following your search :(",
+    "noOverview": "This movie doesn't have any overview in your language",
+    "yesNo": "Yes / No"
   },
   "navBar": {
     "home": "Home",
@@ -12,5 +17,10 @@
     "welcome": "Welcome !",
     "mostPopular": "The most popular movies",
     "lastAdded": "The last added movies"
+  },
+  "settings": {
+    "mySettings": "My settings",
+    "adultContent": "Display the adult restricted movies ?",
+    "language": "Language choice"
   }
 }

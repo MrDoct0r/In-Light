@@ -1,7 +1,12 @@
 {
   "general": {
+    "cancel": "Annuler",
     "search": "Rechercher",
-    "noData": "Aucun film n'a été récupéré :'("
+    "noData": "Aucun film n'a été récupéré :'(",
+    "validate": "Valider",
+    "movieNotFound": "Aucun film ne correspond à votre recherche :(",
+    "noOverview": "Ce film n'a pas de synopsys renseigné dans votre langue",
+    "yesNo": "Oui / Non"
   },
   "navBar": {
     "home": "Accueil",
@@ -12,5 +17,10 @@
     "welcome": "Bienvenue !",
     "mostPopular": "Les films populaires",
     "lastAdded": "Les derniers films ajoutés"
+  },
+  "settings": {
+    "mySettings": "Mes paramètres",
+    "adultContent": "Afficher le contenu pour adultes ?",
+    "language": "Choix de la langue"
   }
 }

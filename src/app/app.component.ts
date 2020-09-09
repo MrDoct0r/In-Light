@@ -19,9 +19,6 @@ export class AppComponent {
     const languageToUse = localStorage.getLanguageSettings() ? localStorage.getLanguageSettings() : translate.getBrowserLang();
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang(languageToUse);
-
-     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('fr');
 }
 
 }

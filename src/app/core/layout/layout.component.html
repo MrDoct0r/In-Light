@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" fxLayout="row wrap" fxLayoutAlign="space-between center">
   <span>tp-angular</span>
   <div>
-    <button mat-button routerLink="/">Accueil</button>
-    <button mat-button routerLink="/mes-films">Mes films</button>
+    <button mat-button routerLink="/">{{ 'navBar.home' | translate}}</button>
+    <button mat-button routerLink="/bookmarks">{{ 'navBar.bookmarks' | translate}}</button>
     <mat-form-field floatLabel="never">
       <input type="text"
-             placeholder="Rechercher"
+             placeholder="{{ 'general.search' | translate}}"
              matInput
              (keyup.enter)="search()"
              [formControl]="mySearchControl">
