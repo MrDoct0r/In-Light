@@ -1,14 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MovieImpl } from '../../models/movie';
 
-@Component({
+@Component( {
   selector: 'app-tiles',
   templateUrl: './tiles.component.html',
   styleUrls: ['./tiles.component.scss']
-})
+} )
 export class TilesComponent implements OnInit {
-  @Input() movie;
+  @Input() movie: MovieImpl;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

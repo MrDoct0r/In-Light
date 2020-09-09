@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResultApi } from 'src/app/shared/models/result-api';
-import { Movie } from 'src/app/shared/models/movie';
+import { MovieImpl } from 'src/app/shared/models/movie';
 import { MovieService } from 'src/app/shared/services/movie.service';
-import { TilesComponent } from '../movies/tiles/tiles.component';
 
-@Component({
+@Component( {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
-})
+} )
 export class HomeComponent implements OnInit {
-  public popularMovies$: Observable<ResultApi<Movie>>;
-  public latestMovies$: Observable<ResultApi<Movie>>;
+  public popularMovies$: Observable<ResultApi<MovieImpl>>;
+  public latestMovies$: Observable<ResultApi<MovieImpl>>;
 
   constructor(
     private movieService: MovieService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.latestMovies$ = this.movieService.getLatest();

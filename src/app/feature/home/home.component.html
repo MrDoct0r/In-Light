@@ -4,11 +4,7 @@
         <ng-container *ngIf="latestMovies.results.length > 0; else noData">
             <h2>Les plus récents</h2>
             <ng-container *ngFor="let movie of latestMovies.results | slice:0:4">
-                <!-- NEED TO IMPORT TILE COMPONENT -->
-                <!-- <app-tiles [movie]="movie"></app-tiles> -->
-                <img *ngIf="movie.poster_path" class="rounded poster" [src]="movie.fullPosterPath" [alt]="movie.title"
-                    [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
-                    [routerLink]="movie.id">
+                <app-tiles [movie]="movie"></app-tiles>
             </ng-container>
         </ng-container>
 
@@ -21,11 +17,7 @@
         <ng-container *ngIf="popularMovies.results.length > 0; else noData">
             <h2>Les plus populaires</h2>
             <ng-container *ngFor="let movie of popularMovies.results | slice:0:4">
-                <!-- NEED TO IMPORT TILE COMPONENT -->
-                <!-- <app-tiles [movie]="movie"></app-tiles> -->
-                <img *ngIf="movie.poster_path" class="rounded poster" [src]="movie.fullPosterPath" [alt]="movie.title"
-                    [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
-                    [routerLink]="movie.id">
+              <app-tiles [movie]="movie"></app-tiles>
             </ng-container>
         </ng-container>
     </div>
