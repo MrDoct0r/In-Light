@@ -8,6 +8,7 @@ import { TilesComponent } from './components/tiles/tiles.component';
 import { SettingsDialogComponent } from './components/settings-dialog/settings-dialog.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ExistsInLocalStoragePipe } from './pipes/exists-in-local-store.pipe';
+import { ResolveMovieFromIdPipe } from './pipes/resolve-movie-from-id.pipe';
 
 
 @NgModule( {
@@ -15,6 +16,7 @@ import { ExistsInLocalStoragePipe } from './pipes/exists-in-local-store.pipe';
     TilesComponent,
     SettingsDialogComponent,
     ExistsInLocalStoragePipe,
+    ResolveMovieFromIdPipe,
   ],
   exports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { ExistsInLocalStoragePipe } from './pipes/exists-in-local-store.pipe';
     FlexLayoutModule,
     TilesComponent,
     TranslateModule,
+    ResolveMovieFromIdPipe,
   ],
   imports: [
     ReactiveFormsModule,

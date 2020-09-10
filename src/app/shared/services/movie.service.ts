@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { Movie, MovieImpl } from '../models/movie';
-import { map, tap } from 'rxjs/operators';
+import { MovieImpl } from '../models/movie';
+import { map } from 'rxjs/operators';
 import { ResultApi } from '../models/result-api';
 
 @Injectable( {
@@ -22,7 +22,7 @@ export class MovieService {
     return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=release_date.desc' )
       .pipe(
         map( r => {
-          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          r.results = r.results.map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
       );
@@ -32,14 +32,17 @@ export class MovieService {
     return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=popularity.desc' )
       .pipe(
         map( r => {
-          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          r.results = r.results.map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
       );
   }
 
-  getById(id: string): Observable<Movie> {
-    return this.http.get<Movie>( this.baseUrl + 'movie/' + id );
+  getById(id: number): Observable<MovieImpl> {
+    return this.http.get<MovieImpl>( this.baseUrl + 'movie/' + id )
+      .pipe(
+        map( m => MovieImpl.fromPlainObject( m ) ),
+      );
   }
 
   findByTitle(title: string, page: number): Observable<ResultApi<MovieImpl>> {
@@ -49,7 +52,6 @@ export class MovieService {
           r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
-        tap(console.log),
       );
   }
 

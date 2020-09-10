@@ -1,4 +1,4 @@
-<div [routerLink]="movie.id" class="tile">
+<div *ngIf="movie" [routerLink]="movie.id" class="col-md-4 col-12 tile">
   <div class="tile-movie-infos">
     <div class="tile-movie-title">{{movie.title}}</div>
     <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
@@ -13,10 +13,9 @@
     </button>
   </div>
   <img
-    *ngIf="movie.poster_path"
     [alt]="movie.title"
     [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
-    [src]="(movie.fullPosterPath ? movie.fullPosterPath : 'src\assets\img\no-image.png')"
-    class="rounded tile-poster"
+    [src]="(movie.poster_path ? movie.fullPosterPath : '/assets/img/no-image.png')"
+    class="tile-poster img-fluid"
   />
 </div>

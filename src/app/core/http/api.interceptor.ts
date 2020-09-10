@@ -14,8 +14,8 @@ export class ApiInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let newParams = new HttpParams( { fromString: request.params.toString() } );
     newParams = newParams.append( 'api_key', environment.apiKey );
-    newParams = newParams.append( 'language', this.localStorageService.getLanguageSettings() );
-    newParams = newParams.append( 'adult', this.localStorageService.getAdultViewSettings());
+    newParams = newParams.append( 'language', this.localStorageService.languageSettings );
+    newParams = newParams.append( 'adult', this.localStorageService.adultViewSettings );
 
     const requestClone = request.clone( {
       params: newParams

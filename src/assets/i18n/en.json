@@ -25,5 +25,8 @@
   },
   "movie": {
     "addToFav": "Bookmark this movie"
+  },
+  "my_bookmarks": {
+    "title": "My Bookmarks"
   }
 }

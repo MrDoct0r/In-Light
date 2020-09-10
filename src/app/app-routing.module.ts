@@ -8,6 +8,7 @@ const routes: Routes = [
     path: '', component: LayoutComponent, children: [
       { path: 'home', loadChildren: () => import('./feature/home/home.module').then( m => m.HomeModule ), },
       { path: 'movies', loadChildren: () => import('./feature/movies/movies.module').then( m => m.MoviesModule ), },
+      { path: 'my-bookmarks', loadChildren: () => import('./feature/bookmarks/bookmarks.module').then( m => m.BookmarksModule ), },
     ]
   },
 ];

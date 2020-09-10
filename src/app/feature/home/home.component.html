@@ -6,13 +6,9 @@
   <ng-container *ngIf="popularMovies$ | async as popularMovies; else loading">
     <div class="row">
       <ng-container *ngIf="popularMovies.results.length > 0; else noData">
-        <h2>{{ "home.mostPopular" | translate }}</h2>
+        <h2 class="col-12">{{ "home.mostPopular" | translate }}</h2>
         <div class="row tile-group">
-          <ng-container
-            *ngFor="let movie of popularMovies.results | slice: 0:5"
-          >
-            <app-tiles [movie]="movie"></app-tiles>
-          </ng-container>
+          <app-tiles *ngFor="let movie of popularMovies.results | slice: 0:5" [movie]="movie"></app-tiles>
         </div>
       </ng-container>
     </div>
@@ -23,9 +19,7 @@
       <ng-container *ngIf="latestMovies.results.length > 0; else noData">
         <h2>{{ "home.lastAdded" | translate }}</h2>
         <div class="row tile-group">
-          <ng-container *ngFor="let movie of latestMovies.results | slice: 0:5">
-            <app-tiles [movie]="movie"></app-tiles>
-          </ng-container>
+          <app-tiles *ngFor="let movie of latestMovies.results | slice: 0:5" [movie]="movie"></app-tiles>
         </div>
       </ng-container>
     </div>

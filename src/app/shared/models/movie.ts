@@ -28,7 +28,7 @@ export class MovieImpl implements Movie {
   }
 
   get releaseDate(): Date {
-    return new Date( this.release_date );
+    return this.release_date ? new Date( this.release_date ) : null;
   }
 
   get fullPosterPath(): string {

@@ -12,16 +12,16 @@ export class LocalStorageService {
     return JSON.parse( localStorage.getItem( 'favorites' ) ) || [];
   }
 
-  isInFavorites(id: number): boolean {
-    return this.favorites.includes( id );
-  }
-
-  getAdultViewSettings(): string {
+  get adultViewSettings(): string {
     return localStorage.getItem( 'showAdultContent' );
   }
 
-  getLanguageSettings(): string {
+  get languageSettings(): string {
     return localStorage.getItem( 'language' );
+  }
+
+  isInFavorites(id: number): boolean {
+    return this.favorites.includes( id );
   }
 
   addToFavorites(id: number): void {

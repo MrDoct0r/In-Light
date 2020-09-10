@@ -17,17 +17,16 @@ export class LayoutComponent {
     private dialog: MatDialog
   ) {
   }
-  
+
   openSettingsDialog(): void {
-    this.dialog.open(SettingsDialogComponent, {
+    this.dialog.open( SettingsDialogComponent, {
       width: '300px'
-    });
+    } );
   }
 
   search(): void {
     this.router.navigate( ['/movies'], { queryParams: { search: this.mySearchControl.value } } );
   }
-
 
 
 }

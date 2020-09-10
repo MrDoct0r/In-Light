@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieImpl } from '../../models/movie';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,16 +8,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './tiles.component.html',
   styleUrls: ['./tiles.component.scss']
 } )
-export class TilesComponent implements OnInit {
+export class TilesComponent {
   @Input() movie: MovieImpl;
 
   constructor(
     private localStorageService: LocalStorageService,
     private snackBar: MatSnackBar,
   ) {
-  }
-
-  ngOnInit(): void {
   }
 
   toggleFavorites(id: number): void {
