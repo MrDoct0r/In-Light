@@ -1,32 +1,38 @@
 <div class="container">
-    <div class="row">
-        <h1>{{ 'home.welcome' | translate }}</h1>
-    </div>
-    
-    <ng-container *ngIf="(popularMovies$ | async) as popularMovies; else loading">
-        <div class="row">
-            <ng-container *ngIf="popularMovies.results.length > 0; else noData">
-                <h2>{{ 'home.mostPopular' | translate }}</h2>
-                <ng-container *ngFor="let movie of popularMovies.results | slice:0:4">
-                    <app-tiles [movie]="movie"></app-tiles>
-                </ng-container>
-            </ng-container>
-        </div>
-    </ng-container>
-    
-    <ng-container *ngIf="(latestMovies$ | async) as latestMovies; else loading">
-        <div class="row">
-            <ng-container *ngIf="latestMovies.results.length > 0; else noData">
-                <h2>{{ 'home.lastAdded' | translate }}</h2>
-                <ng-container *ngFor="let movie of latestMovies.results | slice:0:4">
-                    <app-tiles [movie]="movie"></app-tiles>
-                </ng-container>
-            </ng-container>
-        </div>
-    </ng-container>
+  <div class="row">
+    <h1>{{ "home.welcome" | translate }}</h1>
+  </div>
 
-    <ng-template #loading>
-        <mat-spinner></mat-spinner>
-    </ng-template>
-    <ng-template #noData>{{ 'general.noData' | translate }}</ng-template>
+  <ng-container *ngIf="popularMovies$ | async as popularMovies; else loading">
+    <div class="row">
+      <ng-container *ngIf="popularMovies.results.length > 0; else noData">
+        <h2>{{ "home.mostPopular" | translate }}</h2>
+        <div class="row tile-group">
+          <ng-container
+            *ngFor="let movie of popularMovies.results | slice: 0:4"
+          >
+            <app-tiles [movie]="movie"></app-tiles>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="latestMovies$ | async as latestMovies; else loading">
+    <div class="row">
+      <ng-container *ngIf="latestMovies.results.length > 0; else noData">
+        <h2>{{ "home.lastAdded" | translate }}</h2>
+        <div class="row tile-group">
+          <ng-container *ngFor="let movie of latestMovies.results | slice: 0:4">
+            <app-tiles [movie]="movie"></app-tiles>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <ng-template #noData>{{ "general.noData" | translate }}</ng-template>
 </div>
