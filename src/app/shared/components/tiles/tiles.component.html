@@ -5,15 +5,18 @@
     <p
       class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
     </p>
-    <button class="btn-bookmark-movie" title="{{ 'movie.addToFav' | translate}}" mat-fab color="accent" aria-label="Bookmark button">
+    <button (click)="toggleFavorites(movie.id); $event.stopPropagation();"
+            [color]="(movie.id | existsInLocalStorage) ? 'accent' : 'warn'"
+            aria-label="Bookmark button" class="btn-bookmark-movie"
+            mat-fab title="{{ 'movie.addToFav' | translate}}">
       <mat-icon>bookmark</mat-icon>
     </button>
   </div>
   <img
     *ngIf="movie.poster_path"
-    class="rounded tile-poster"
-    [src]="(movie.fullPosterPath ? movie.fullPosterPath : 'src\assets\img\no-image.png')"
     [alt]="movie.title"
     [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
+    [src]="(movie.fullPosterPath ? movie.fullPosterPath : 'src\assets\img\no-image.png')"
+    class="rounded tile-poster"
   />
 </div>

@@ -7,12 +7,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TilesComponent } from './components/tiles/tiles.component';
 import { SettingsDialogComponent } from './components/settings-dialog/settings-dialog.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ExistsInLocalStoragePipe } from './pipes/exists-in-local-store.pipe';
 
 
 @NgModule( {
   declarations: [
     TilesComponent,
     SettingsDialogComponent,
+    ExistsInLocalStoragePipe,
   ],
   exports: [
     CommonModule,
