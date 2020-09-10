@@ -41,8 +41,15 @@
 }
 
 .tile-movie-overview {
-    max-height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    line-height: 1.5em;
+    max-height: 21em;
     margin: 12px 0;
+    background: linear-gradient(black 250px, #ffffffcc);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .btn-bookmark-movie {
