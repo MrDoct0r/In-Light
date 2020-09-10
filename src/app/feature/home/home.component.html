@@ -9,7 +9,7 @@
         <h2>{{ "home.mostPopular" | translate }}</h2>
         <div class="row tile-group">
           <ng-container
-            *ngFor="let movie of popularMovies.results | slice: 0:4"
+            *ngFor="let movie of popularMovies.results | slice: 0:5"
           >
             <app-tiles [movie]="movie"></app-tiles>
           </ng-container>
@@ -23,7 +23,7 @@
       <ng-container *ngIf="latestMovies.results.length > 0; else noData">
         <h2>{{ "home.lastAdded" | translate }}</h2>
         <div class="row tile-group">
-          <ng-container *ngFor="let movie of latestMovies.results | slice: 0:4">
+          <ng-container *ngFor="let movie of latestMovies.results | slice: 0:5">
             <app-tiles [movie]="movie"></app-tiles>
           </ng-container>
         </div>

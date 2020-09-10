@@ -22,5 +22,8 @@
     "mySettings": "Mes paramètres",
     "adultContent": "Afficher le contenu pour adultes ?",
     "language": "Choix de la langue"
+  },
+  "movie": {
+    "addToFav": "Mettre ce film en favoris"
   }
 }

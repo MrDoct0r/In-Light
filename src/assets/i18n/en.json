@@ -22,5 +22,8 @@
     "mySettings": "My settings",
     "adultContent": "Display the adult restricted movies ?",
     "language": "Language choice"
+  },
+  "movie": {
+    "addToFav": "Bookmark this movie"
   }
 }

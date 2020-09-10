@@ -3,7 +3,11 @@
     <div class="tile-movie-title">{{movie.title}}</div>
     <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
     <p
-      class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}</p>
+      class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
+    </p>
+    <button class="btn-bookmark-movie" title="{{ 'movie.addToFav' | translate}}" mat-fab color="accent" aria-label="Bookmark button">
+      <mat-icon>bookmark</mat-icon>
+    </button>
   </div>
   <img
     *ngIf="movie.poster_path"

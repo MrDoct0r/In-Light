@@ -9,6 +9,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+h1 {
+  margin: 50px 0;
+  font-size: xx-large;
+}
+
+h2 {
+  background-image: linear-gradient(to right, #7b1fa2, white);
+  color: white;
+  padding-left: 10px;
+}
+
 .img-fluid {
   max-width: 100%;
   height: auto;
