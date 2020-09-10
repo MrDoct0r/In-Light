@@ -1,10 +1,10 @@
 .tile{
     display: inline-block;
     cursor: pointer;
-    // margin: 10px;
     vertical-align: top;
     text-align: left;
     height: 450px;
+    outline: none;
 }
 
 .tile, .tile-movie-infos{
@@ -20,13 +20,13 @@
     transition: overflow .2s ease;
 }
 
-.tile-movie-title{
+.movie-title{
     font-size: large;
     font-weight: bold;
     margin-bottom: 2px;
 }
 
-.tile-movie-year{
+.movie-year{
     font-style: italic;
     color: darkslategrey;
 }
@@ -38,9 +38,10 @@
     width: 280px;
     height: 430px;
     padding: 10px;
+    outline: none;
 }
 
-.tile-movie-overview {
+.movie-overview {
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
