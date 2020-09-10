@@ -1,10 +1,10 @@
 .tile{
     display: inline-block;
     cursor: pointer;
-    // margin: 10px;
     vertical-align: top;
     text-align: left;
     height: 450px;
+    outline: none;
 }
 
 .tile, .tile-movie-infos{
