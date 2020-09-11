@@ -59,7 +59,7 @@ export class MovieService {
     return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'search/movie?query=' + title + '&page=' + page )
       .pipe(
         map( r => {
-          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          r.results = r.results.map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
       );

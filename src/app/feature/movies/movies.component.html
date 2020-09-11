@@ -10,21 +10,21 @@
 
     <ng-container *ngIf="movies.results.length > 0; else noData">
       <div class="row">
-        <ng-container *ngFor="let movie of movies.results">
-          <app-tiles [movie]="movie"></app-tiles>
-        </ng-container>
+        <app-tiles class="col-md-3 col-12 p-0" *ngFor="let movie of movies.results" [movie]="movie"></app-tiles>
       </div>
     </ng-container>
-    <mat-paginator
-      *ngIf="movies.results.length > 0"
-      [length]="movies.total_results"
-      [pageIndex]="pageIndex"
-      [pageSize]="20"
-      [hidePageSize]="true"
-      (page)="changePage($event)"
-      showFirstLastButtons
-    >
-    </mat-paginator>
+    <div class="row">
+      <mat-paginator class="col-12"
+        *ngIf="movies.results.length > 0"
+        [length]="movies.total_results"
+        [pageIndex]="pageIndex"
+        [pageSize]="20"
+        [hidePageSize]="true"
+        (page)="changePage($event)"
+        showFirstLastButtons
+      >
+      </mat-paginator>
+    </div>
   </div>
 </ng-container>
 

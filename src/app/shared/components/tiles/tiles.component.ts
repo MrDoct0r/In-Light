@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { MovieImpl } from '../../models/movie';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { SnackBarService } from '../../services/snackbar.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component( {
   selector: 'app-tiles',
@@ -25,8 +24,8 @@ export class TilesComponent {
         'movie.removedFromFav',
         'general.close',
         3000,
-        "right",
-        "top"
+        'right',
+        'top'
       );
     } else {
       this.localStorageService.addToFavorites( id );
@@ -34,8 +33,8 @@ export class TilesComponent {
         'movie.addedToFav',
         'general.close',
         3000,
-        "right",
-        "top"
+        'right',
+        'top'
       );
     }
   }

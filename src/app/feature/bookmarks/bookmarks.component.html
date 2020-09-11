@@ -1,10 +1,7 @@
 <div class="container">
   <div class="row">
-    <h1>{{ "my_bookmarks.title" | translate }}</h1>
-  </div>
-
-  <div class="row tile-group">
-    <app-tiles *ngFor="let id of myBookmarksId" [movie]="(id | resolveMovieFromId) | async"></app-tiles>
-    <ng-container *ngIf="myBookmarksId.length === 0">{{ "general.noData" | translate }}</ng-container>
+    <h1 class="col-12">{{ "my_bookmarks.title" | translate }}</h1>
+    <app-tiles class="col-md-3 col-12 p-0" *ngFor="let id of myBookmarksId" [movie]="(id | resolveMovieFromId) | async"></app-tiles>
+    <ng-container class="col-12" *ngIf="myBookmarksId.length === 0">{{ "general.noData" | translate }}</ng-container>
   </div>
 </div>

@@ -1,7 +1,8 @@
-<div [routerLink]="['/movies', movie.id]" class="tile">
+<div [routerLink]="['/movies', movie.id]" class="tile" *ngIf="movie">
   <div class="tile-movie-infos">
     <div class="tile-movie-title">{{movie.title}}</div>
-    <span class="tile-movie-year">{{ movie.releaseDate ? ('movie.released_on' | translate) (movie.releaseDate | date: "yyyy") : 'movie.noDate' | translate }}</span>
+    <span class="tile-movie-year" *ngIf="movie.release_date">{{ 'movie.released_on' | translate }} {{movie.releaseDate | date: "yyyy"}}</span>
+    <span class="tile-movie-year" *ngIf="!movie.release_date">{{ 'movie.noDate' | translate }}</span>
     <p
       class="movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
     </p>
@@ -12,9 +13,5 @@
       <mat-icon>bookmark</mat-icon>
     </button>
   </div>
-  <img
-    [alt]="movie.title"
-    class="rounded movie-poster img-fluid"
-    [src]="(movie.poster_path ? movie.fullPosterPath : '/assets/img/no-image.png')"
-  />
+  <img [alt]="movie.title" class="img-fluid" [src]="(movie.poster_path ? movie.fullPosterPath : '/assets/img/no-image.png')" />
 </div>
