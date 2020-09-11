@@ -24,7 +24,8 @@
     "language": "Language choice"
   },
   "movie": {
-    "addToFav": "Bookmark this movie"
+    "addToFav": "Bookmark this movie",
+    "released_on": "Released on"
   },
   "my_bookmarks": {
     "title": "My Bookmarks"

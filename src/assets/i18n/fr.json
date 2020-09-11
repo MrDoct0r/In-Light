@@ -24,7 +24,8 @@
     "language": "Choix de la langue"
   },
   "movie": {
-    "addToFav": "Mettre ce film en favoris"
+    "addToFav": "Mettre ce film en favoris",
+    "released_on": "Produit en"
   },
   "my_bookmarks": {
     "title": "Mes favoris"

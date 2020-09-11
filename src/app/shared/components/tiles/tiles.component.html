@@ -1,7 +1,7 @@
 <div *ngIf="movie" [routerLink]="movie.id" class="col-md-4 col-12 tile">
   <div class="tile-movie-infos">
     <div class="tile-movie-title">{{movie.title}}</div>
-    <span class="tile-movie-year">Produit en {{movie.releaseDate | date: 'yyyy'}}</span>
+    <span class="tile-movie-year">{{'movie.released_on' | translate}} {{movie.releaseDate | date: 'yyyy'}}</span>
     <p
       class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
     </p>
