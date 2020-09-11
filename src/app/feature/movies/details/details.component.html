@@ -16,7 +16,8 @@
           <div class="row">
             <div class="col-8">
               <div class="row">
-                <span class="movie-year">
+                <h3 class="slogan col-12" *ngIf="movie.tagline">{{movie.tagline}}</h3>
+                <span class="movie-year col-12">
                   <span class="tile-movie-year" *ngIf="movie.release_date"
                     >{{ "movie.released_on" | translate }}
                     {{ movie.releaseDate | date: "yyyy" }}</span
@@ -27,7 +28,7 @@
                 </span>
               </div>
               <div class="row">
-                <mat-chip-list aria-label="movie-genres">
+                <mat-chip-list aria-label="movie-genres" class="col-12">
                   <mat-chip
                     class="genre-chip"
                     [routerLink]="'/genre/' + genre.id"
@@ -54,14 +55,14 @@
           </div>
 
           <div class="row mt-3">
-            <p class="movie-overview">
+            <p class="movie-overview col-12">
               {{
                 movie.overview
                   ? movie.overview
                   : ("general.noOverview" | translate)
               }}
             </p>
-            <div *ngIf="movie.homepage">
+            <div class="col-12" *ngIf="movie.homepage">
               Site web : <a [href]="movie.homepage" target="_blank">{{movie.homepage}}</a>
             </div>
           </div>

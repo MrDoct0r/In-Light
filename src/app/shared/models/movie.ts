@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 export interface Movie {
   id: number;
   title: string;
+  tagline?: string;
   overview: string;
   popularity: string;
   release_date: string;
@@ -18,6 +19,7 @@ export class MovieImpl implements Movie {
   constructor(
     public id: number,
     public title: string,
+    public tagline: string,
     public overview: string,
     public popularity: string,
     public release_date: string,
@@ -41,6 +43,7 @@ export class MovieImpl implements Movie {
     return new MovieImpl(
       movie.id,
       movie.title,
+      movie.tagline,
       movie.overview,
       movie.popularity,
       movie.release_date,
