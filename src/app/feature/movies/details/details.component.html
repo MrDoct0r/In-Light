@@ -73,8 +73,8 @@
               mat-fab
             >
               <mat-icon class="btn-bookmark-movie-icon">favorite</mat-icon>
-              <span class="btn-bookmark-movie-text" *ngIf="movie.id | existsInLocalStorage">{{ movie.removeFromFav | translate }}</span>
-              <span class="btn-bookmark-movie-text" *ngIf="!(movie.id | existsInLocalStorage)">{{ movie.addToFav | translate }}</span>
+              <span class="btn-bookmark-movie-text" *ngIf="movie.id | existsInLocalStorage">{{ 'movie.removeFromFav' | translate }}</span>
+              <span class="btn-bookmark-movie-text" *ngIf="!(movie.id | existsInLocalStorage)">{{ 'movie.addToFav' | translate }}</span>
             </button>
           </div>
         </div>
