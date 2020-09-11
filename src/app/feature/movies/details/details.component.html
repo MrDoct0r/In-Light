@@ -8,11 +8,7 @@
         <div class="col-5">
           <img
             class="rounded tile-poster"
-            [src]="
-              movie.fullPosterPath
-                ? movie.fullPosterPath
-                : 'src\assets\img\no-image.png'
-            "
+            [src]="movie.fullPosterPath"
             [alt]="movie.title"
           />
         </div>

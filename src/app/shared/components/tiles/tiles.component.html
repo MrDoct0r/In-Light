@@ -13,5 +13,5 @@
       <mat-icon>favorite</mat-icon>
     </button>
   </div>
-  <img [alt]="movie.title" class="img-fluid" [src]="(movie.poster_path ? movie.fullPosterPath : '/assets/img/no-image.png')" />
+  <img [alt]="movie.title" class="img-fluid" [src]="movie.fullPosterPath" />
 </div>

@@ -32,7 +32,7 @@ export class MovieImpl implements Movie {
   }
 
   get fullPosterPath(): string {
-    return environment.apiImageUrl + this.poster_path;
+    return this.poster_path ? environment.apiImageUrl + this.poster_path : '/assets/img/no-image.png';
   }
 
   static fromPlainObject(movie: Movie): MovieImpl {
