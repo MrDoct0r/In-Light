@@ -26,6 +26,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -60,6 +61,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatPaginatorModule,
     MatSlideToggleModule,
     MatFormFieldModule,
+    MatMenuModule,
   ]
 } )
 export class MaterialModule {

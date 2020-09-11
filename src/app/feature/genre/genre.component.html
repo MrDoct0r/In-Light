@@ -1,0 +1,27 @@
+<ng-container *ngIf="result$ | async as result; else loading">
+  <div class="row">
+    <ng-container *ngIf="result.results.length > 0; else noData">
+      <h1>{{ genre.name }}
+        <small class="text-muted">{{ result.total_results }} résultats &#8226; Page
+          {{ result.page }} sur {{ result.total_pages }}</small></h1>
+      <div class="row tile-group">
+        <app-tiles *ngFor="let movie of result.results" [movie]="movie"></app-tiles>
+      </div>
+    </ng-container>
+  </div>
+  <mat-paginator
+    *ngIf="result.results.length > 0"
+    [length]="result.total_results"
+    [pageIndex]="pageIndex"
+    [pageSize]="20"
+    [hidePageSize]="true"
+    (page)="changePage($event)"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
+<ng-template #noData>{{ "general.noData" | translate }}</ng-template>

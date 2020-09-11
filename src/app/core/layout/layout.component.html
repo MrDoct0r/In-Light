@@ -3,6 +3,10 @@
   <div>
     <button mat-button routerLink="/">{{ 'navBar.home' | translate}}</button>
     <button mat-button routerLink="/my-bookmarks">{{ 'navBar.bookmarks' | translate}}</button>
+    <button mat-button [matMenuTriggerFor]="menu">Genres</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let genre of genres$ | async" [routerLink]="'/genre/' + genre.id">{{genre.name}}</button>
+    </mat-menu>
     <mat-form-field floatLabel="never">
       <input type="text"
              placeholder="{{ 'general.search' | translate}}"

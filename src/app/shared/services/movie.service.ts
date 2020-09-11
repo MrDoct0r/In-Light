@@ -55,4 +55,13 @@ export class MovieService {
       );
   }
 
+  discoverByGenreId(id: number, page: number): Observable<ResultApi<MovieImpl>> {
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?with_genres=' + id + '&page=' + page )
+      .pipe(
+        map( r => {
+          r.results = r.results.map( m => MovieImpl.fromPlainObject( m ) );
+          return r;
+        } ),
+      );
+  }
 }

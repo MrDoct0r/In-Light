@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Genre } from '../models/genre';
 
 @Injectable( {
   providedIn: 'root'
@@ -20,6 +21,14 @@ export class LocalStorageService {
     return localStorage.getItem( 'language' );
   }
 
+  get genres(): Genre[] {
+    return JSON.parse( localStorage.getItem( 'genres' ) );
+  }
+
+  set genres(genres: Genre[]) {
+    localStorage.setItem( 'genres', JSON.stringify( genres ) );
+  }
+
   isInFavorites(id: number): boolean {
     return this.favorites.includes( id );
   }
@@ -38,4 +47,6 @@ export class LocalStorageService {
     }
     localStorage.setItem( 'favorites', JSON.stringify( fav ) );
   }
+
+  findGenreById = (id: number): Genre => this.genres.find( value => value.id === id );
 }

@@ -3,10 +3,8 @@
     <div class="row">
       <h1>
         Films correspondants à : &laquo; {{ searchString }} &raquo;
-        <small class="text-muted"
-          >{{ movies.total_results }} résultats &#8226; Page
-          {{ movies.page }} sur {{ movies.total_pages }}</small
-        >
+        <small class="text-muted">{{ movies.total_results }} résultats &#8226; Page
+          {{ movies.page }} sur {{ movies.total_pages }}</small>
       </h1>
     </div>
 
@@ -20,6 +18,7 @@
     <mat-paginator
       *ngIf="movies.results.length > 0"
       [length]="movies.total_results"
+      [pageIndex]="pageIndex"
       [pageSize]="20"
       [hidePageSize]="true"
       (page)="changePage($event)"
@@ -33,8 +32,8 @@
   <mat-spinner></mat-spinner>
 </ng-template>
 <ng-template #noData>
-  <div class="row" class="search-not-found">
-    <img src="assets\img\torn.png" width="250" alt="no-movies" />
+  <div class="row search-not-found">
+    <img src="/assets/img/torn.png" width="250" alt="no-movies" />
     <h2>
       {{ "general.movieNotFound" | translate }}
     </h2>
