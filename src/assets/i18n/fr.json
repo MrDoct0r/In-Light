@@ -26,7 +26,8 @@
     "language": "Choix de la langue"
   },
   "movie": {
-    "addToFav": "Mettre ce film en favoris",
+    "addToFav": "Ajouter en favoris",
+    "removefromFav": "Retirer des favoris",
     "addedToFav": "Ce film a été ajouté à vos favoris",
     "removedFromFav": "Ce film a été retiré de vos favoris",
     "released_on": "Produit en",

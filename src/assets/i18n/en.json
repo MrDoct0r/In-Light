@@ -26,7 +26,8 @@
     "language": "Language choice"
   },
   "movie": {
-    "addToFav": "Bookmark this movie",
+    "addToFav": "Add to my bookmarks",
+    "removefromFav": "Remove from bookmarks",
     "addedToFav": "Movie added to your bookmarks",
     "removedFromFav": "Movie removed from your bookmarks",
     "released_on": "Released on",

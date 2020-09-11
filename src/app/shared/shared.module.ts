@@ -30,6 +30,7 @@ import { GetGenreByIdPipe } from './pipes/get-genre-by-id.pipe';
     TilesComponent,
     TranslateModule,
     ResolveMovieFromIdPipe,
+    ExistsInLocalStoragePipe,
   ],
   imports: [
     ReactiveFormsModule,

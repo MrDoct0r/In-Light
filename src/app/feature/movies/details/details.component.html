@@ -40,15 +40,13 @@
             <div class="col-4">
               <div class="movie-vote-box">
                 <mat-progress-spinner
-                class="movie-vote-progress"
+                  class="movie-vote-progress"
                   color="accent"
                   mode="determinate"
                   value="{{ movie.vote_average * 10 }}"
                 >
                 </mat-progress-spinner>
-                <div class="movie-vote">
-                  {{ movie.vote_average * 10 }}%
-                </div>
+                <div class="movie-vote">{{ movie.vote_average * 10 }}%</div>
               </div>
             </div>
           </div>
@@ -61,6 +59,19 @@
                   : ("general.noOverview" | translate)
               }}
             </p>
+          </div>
+          <div class="row bookmark-movie">
+            <button
+              (click)="toggleFavorites(movie.id); $event.stopPropagation()"
+              aria-label="Bookmark button"
+              [color]="(movie.id | existsInLocalStorage) ? 'accent' : 'warn'"
+              class="btn-bookmark-movie"
+              mat-fab
+            >
+              <mat-icon class="btn-bookmark-movie-icon">favorite</mat-icon>
+              <span class="btn-bookmark-movie-text" *ngIf="movie.id | existsInLocalStorage">{{ movie.removeFromFav | translate }}</span>
+              <span class="btn-bookmark-movie-text" *ngIf="!(movie.id | existsInLocalStorage)">{{ movie.addToFav | translate }}</span>
+            </button>
           </div>
         </div>
       </div>

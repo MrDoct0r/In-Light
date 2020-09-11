@@ -27,3 +27,33 @@ h1 {
 .genre-chip {
   cursor: pointer;
 }
+
+.bookmark-movie {
+    position: absolute;
+    float: right;
+    bottom: 0;
+    right: 0;
+}
+
+.btn-bookmark-movie {
+    transition: display 0.5s, width 0.5s, visibility 2s, border-radius 0s ease;
+}
+
+.btn-bookmark-movie:hover {
+    width: 200px;
+    border-radius: 30px;
+}
+
+.btn-bookmark-movie-text {
+    visibility: hidden;
+    display: none;
+}
+
+.btn-bookmark-movie:hover .btn-bookmark-movie-text {
+    visibility: visible;
+    display: inline-block;
+}
+
+.btn-bookmark-movie:hover .btn-bookmark-movie-icon {
+    margin: 0 5px;
+}
