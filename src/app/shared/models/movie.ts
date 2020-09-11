@@ -10,6 +10,7 @@ export interface Movie {
   vote_average: number;
   poster_path: string;
   genres: Array<Genre>;
+  genre_ids?: number[];
   homepage: string;
 }
 
@@ -23,6 +24,7 @@ export class MovieImpl implements Movie {
     public vote_average: number,
     public poster_path: string,
     public genres: Array<Genre>,
+    public genre_ids: number[],
     public homepage: string,
   ) {
   }
@@ -45,6 +47,7 @@ export class MovieImpl implements Movie {
       movie.vote_average,
       movie.poster_path,
       movie.genres,
+      movie.genre_ids,
       movie.homepage,
     );
   }
