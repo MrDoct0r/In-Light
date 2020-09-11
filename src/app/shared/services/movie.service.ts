@@ -38,6 +38,16 @@ export class MovieService {
       );
   }
 
+  getTopRated(): Observable<ResultApi<MovieImpl>> {
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=vote_average.desc' )
+      .pipe(
+        map( r => {
+          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          return r;
+        } ),
+      );
+  }
+
   getById(id: number): Observable<MovieImpl> {
     return this.http.get<MovieImpl>( this.baseUrl + 'movie/' + id )
       .pipe(

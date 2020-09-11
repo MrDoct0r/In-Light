@@ -3,6 +3,19 @@
     <h1>{{ "home.welcome" | translate }}</h1>
   </div>
 
+  <ng-container *ngIf="topRatedMovies$ | async as topRatedMovies; else loading">
+    <div class="row">
+      <ng-container *ngIf="topRatedMovies.results.length > 0; else noData">
+        <h2>{{ "home.topRated" | translate }}</h2>
+        <div class="row tile-group">
+          <ng-container *ngFor="let movie of topRatedMovies.results | slice: 0:5">
+            <app-tiles [movie]="movie"></app-tiles>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="popularMovies$ | async as popularMovies; else loading">
     <div class="row">
       <ng-container *ngIf="popularMovies.results.length > 0; else noData">

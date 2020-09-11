@@ -1,6 +1,7 @@
 {
   "general": {
     "cancel": "Annuler",
+    "close": "Fermer",
     "search": "Rechercher",
     "noData": "Aucun film n'a été récupéré :'(",
     "validate": "Valider",
@@ -16,7 +17,8 @@
   "home": {
     "welcome": "Bienvenue !",
     "mostPopular": "Les films populaires",
-    "lastAdded": "Les derniers films ajoutés"
+    "lastAdded": "Les derniers films ajoutés",
+    "topRated": "Les films les mieux notés"
   },
   "settings": {
     "mySettings": "Mes paramètres",
@@ -25,7 +27,10 @@
   },
   "movie": {
     "addToFav": "Mettre ce film en favoris",
-    "released_on": "Produit en"
+    "addedToFav": "Ce film a été ajouté à vos favoris",
+    "removedFromFav": "Ce film a été retiré de vos favoris",
+    "released_on": "Produit en",
+    "noDate": "Aucune date de sortie renseignée"
   },
   "my_bookmarks": {
     "title": "Mes favoris"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { SnackBarService } from '../../services/snackbar.service';
 
 @Component( {
   selector: 'app-settings-dialog',
@@ -16,7 +17,8 @@ export class SettingsDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<SettingsDialogComponent>,
     private localStorage: LocalStorageService,
-    private translate: TranslateService) {
+    private translate: TranslateService,
+    private snackBar: SnackBarService) {
   }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   onSubmitClick(): void {
+    this.snackBar.displaySnackBar('Application des nouveaux paramètres', 'Fermer', 3000, "right", "top");
     this.translate.use( this.language );
     localStorage.setItem( 'language', this.language );
     localStorage.setItem( 'showAdultContent', this.showAdultContent );

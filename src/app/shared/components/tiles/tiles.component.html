@@ -1,9 +1,9 @@
-<div *ngIf="movie" [routerLink]="movie.id" class="col-md-4 col-12 tile">
+<div [routerLink]="['/movies', movie.id]" class="tile">
   <div class="tile-movie-infos">
     <div class="tile-movie-title">{{movie.title}}</div>
-    <span class="tile-movie-year">{{'movie.released_on' | translate}} {{movie.releaseDate | date: 'yyyy'}}</span>
+    <span class="tile-movie-year">{{ movie.releaseDate ? ('movie.released_on' | translate) (movie.releaseDate | date: "yyyy") : 'movie.noDate' | translate }}</span>
     <p
-      class="tile-movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
+      class="movie-overview">{{movie.overview ? movie.overview : 'general.noOverview' | translate }}
     </p>
     <button (click)="toggleFavorites(movie.id); $event.stopPropagation();"
             [color]="(movie.id | existsInLocalStorage) ? 'accent' : 'warn'"
@@ -14,8 +14,7 @@
   </div>
   <img
     [alt]="movie.title"
-    [matTooltip]="movie.title + ' (' + (movie.releaseDate | date: 'yyyy') + ')'"
+    class="rounded movie-poster img-fluid"
     [src]="(movie.poster_path ? movie.fullPosterPath : '/assets/img/no-image.png')"
-    class="tile-poster img-fluid"
   />
 </div>

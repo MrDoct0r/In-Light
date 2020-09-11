@@ -1,1 +1,50 @@
-<p>details works!</p>
+<div class="container">
+  <ng-container *ngIf="movie$ | async as movie; else loading">
+    <ng-container *ngIf="movie; else noData">
+      <div class="row">
+        <h2>{{ movie.title }}</h2>
+        <div class="col-3">
+          <img
+            class="rounded tile-poster"
+            [src]="
+              movie.fullPosterPath
+                ? movie.fullPosterPath
+                : 'src\assets\img\no-image.png'
+            "
+            [alt]="movie.title"
+          />
+        </div>
+        <div class="col-9">
+          <div class="row">
+            <span class="movie-year">
+              {{ movie.releaseDate ? ('movie.released_on' | translate) (movie.releaseDate | date: "yyyy") : 'movie.noDate' | translate }}
+            </span>
+            <mat-progress-spinner
+              color="accent"
+              mode="determinate"
+              value="{{ movie.vote_average * 10 }}"
+            >
+              <div class="movie-vote">
+                {{ movie.vote_average * 10 }}
+              </div>
+            </mat-progress-spinner>
+            <p class="movie-overview">
+              {{
+                movie.overview
+                  ? movie.overview
+                  : ("general.noOverview" | translate)
+              }}
+            </p>
+            <span>
+              <mat-chip></mat-chip>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <ng-template #noData>{{ "general.noData" | translate }}</ng-template>
+</div>
