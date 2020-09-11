@@ -16,16 +16,9 @@
           <div class="row">
             <div class="col-8">
               <div class="row">
-                <h3 class="slogan col-12" *ngIf="movie.tagline">{{movie.tagline}}</h3>
-                <span class="movie-year col-12">
-                  <span class="tile-movie-year" *ngIf="movie.release_date"
-                    >{{ "movie.released_on" | translate }}
-                    {{ movie.releaseDate | date: "yyyy" }}</span
-                  >
-                  <span class="tile-movie-year" *ngIf="!movie.release_date">{{
-                    "general.noData" | translate
-                  }}</span>
-                </span>
+                <h3 class="slogan col-12" *ngIf="movie.tagline">
+                  {{ movie.tagline }}
+                </h3>
               </div>
               <div class="row">
                 <mat-chip-list aria-label="movie-genres" class="col-12">
@@ -36,6 +29,16 @@
                     >{{ genre.name }}</mat-chip
                   >
                 </mat-chip-list>
+                
+                <span class="movie-year col-12 mt-3">
+                  <span class="tile-movie-year" *ngIf="movie.release_date"
+                    >{{ "movie.released_on" | translate }}
+                    {{ movie.releaseDate | date: "yyyy" }}</span
+                  >
+                  <span class="tile-movie-year" *ngIf="!movie.release_date">{{
+                    "general.noData" | translate
+                  }}</span>
+                </span>
               </div>
             </div>
             <div class="col-4">
@@ -61,7 +64,10 @@
               }}
             </p>
             <div class="col-12" *ngIf="movie.homepage">
-              Site web : <a [href]="movie.homepage" target="_blank">{{movie.homepage}}</a>
+              Site web :
+              <a [href]="movie.homepage" target="_blank">{{
+                movie.homepage
+              }}</a>
             </div>
           </div>
           <div class="row bookmark-movie">
@@ -73,8 +79,16 @@
               mat-fab
             >
               <mat-icon class="btn-bookmark-movie-icon">favorite</mat-icon>
-              <span class="btn-bookmark-movie-text" *ngIf="movie.id | existsInLocalStorage">{{ 'movie.removeFromFav' | translate }}</span>
-              <span class="btn-bookmark-movie-text" *ngIf="!(movie.id | existsInLocalStorage)">{{ 'movie.addToFav' | translate }}</span>
+              <span
+                class="btn-bookmark-movie-text"
+                *ngIf="movie.id | existsInLocalStorage"
+                >{{ "movie.removeFromFav" | translate }}</span
+              >
+              <span
+                class="btn-bookmark-movie-text"
+                *ngIf="!(movie.id | existsInLocalStorage)"
+                >{{ "movie.addToFav" | translate }}</span
+              >
             </button>
           </div>
         </div>
