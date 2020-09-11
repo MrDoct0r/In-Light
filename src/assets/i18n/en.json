@@ -1,6 +1,7 @@
 {
   "general": {
     "cancel": "Cancel",
+    "close": "Close",
     "noData": "There is no movies loaded :'(",
     "search": "Search",
     "validate": "Validate",
@@ -16,7 +17,8 @@
   "home": {
     "welcome": "Welcome !",
     "mostPopular": "The most popular movies",
-    "lastAdded": "The last added movies"
+    "lastAdded": "The last added movies",
+    "topRated": "The top rated movies"
   },
   "settings": {
     "mySettings": "My settings",
@@ -25,7 +27,10 @@
   },
   "movie": {
     "addToFav": "Bookmark this movie",
-    "released_on": "Released on"
+    "addedToFav": "Movie added to your bookmarks",
+    "removedFromFav": "Movie removed from your bookmarks",
+    "released_on": "Released on",
+    "noDate": "No release date specified"
   },
   "my_bookmarks": {
     "title": "My Bookmarks"
