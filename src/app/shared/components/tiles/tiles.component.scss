@@ -61,3 +61,11 @@
 .tile-movie-title {
   font-size: 16px;
 }
+
+mat-chip:hover {
+  cursor: pointer;
+}
+
+button.mat-fab:hover {
+  opacity: 0.8;
+}
