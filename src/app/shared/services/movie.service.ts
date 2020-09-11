@@ -39,10 +39,10 @@ export class MovieService {
   }
 
   getTopRated(): Observable<ResultApi<MovieImpl>> {
-    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=vote_average.desc' )
+    return this.http.get<ResultApi<MovieImpl>>( this.baseUrl + 'discover/movie?sort_by=vote_average.desc&sort_by=vote_count.desc' )
       .pipe(
         map( r => {
-          r.results = r.results.filter( m => m.poster_path ).map( m => MovieImpl.fromPlainObject( m ) );
+          r.results = r.results.map( m => MovieImpl.fromPlainObject( m ) );
           return r;
         } ),
       );
