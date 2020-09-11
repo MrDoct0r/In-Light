@@ -2,8 +2,10 @@
   <ng-container *ngIf="movie$ | async as movie; else loading">
     <ng-container *ngIf="movie; else noData">
       <div class="row">
-        <h2>{{ movie.title }}</h2>
-        <div class="col-3">
+        <h1 class="col-12">{{ movie.title }}</h1>
+      </div>
+      <div class="row">
+        <div class="col-5">
           <img
             class="rounded tile-poster"
             [src]="
@@ -14,11 +16,26 @@
             [alt]="movie.title"
           />
         </div>
-        <div class="col-9">
+        <div class="col-7">
           <div class="row">
-            <span class="movie-year">
-              {{ movie.releaseDate ? ('movie.released_on' | translate) (movie.releaseDate | date: "yyyy") : 'movie.noDate' | translate }}
-            </span>
+            <div class="col-8">
+              <div class="row">
+                <span class="movie-year">
+                  <span class="tile-movie-year" *ngIf="movie.release_date"
+                    >{{ "movie.released_on" | translate }}
+                    {{ movie.releaseDate | date: "yyyy" }}</span
+                  >
+                  <span class="tile-movie-year" *ngIf="!movie.release_date">{{
+                    "general.noData" | translate
+                  }}</span>
+                </span>
+              </div>
+              <div class="row">
+                <mat-chip-list aria-label="movie-genres">
+                  <mat-chip *ngFor="let genre of movie.genres">{{genre.name}}</mat-chip>
+                </mat-chip-list>
+              </div>
+            </div>
             <mat-progress-spinner
               color="accent"
               mode="determinate"
@@ -28,6 +45,9 @@
                 {{ movie.vote_average * 10 }}
               </div>
             </mat-progress-spinner>
+          </div>
+
+          <div class="row">
             <p class="movie-overview">
               {{
                 movie.overview
