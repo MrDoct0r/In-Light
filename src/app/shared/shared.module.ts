@@ -9,6 +9,7 @@ import { SettingsDialogComponent } from './components/settings-dialog/settings-d
 import { TranslateModule } from '@ngx-translate/core';
 import { ExistsInLocalStoragePipe } from './pipes/exists-in-local-store.pipe';
 import { ResolveMovieFromIdPipe } from './pipes/resolve-movie-from-id.pipe';
+import { GetGenreByIdPipe } from './pipes/get-genre-by-id.pipe';
 
 
 @NgModule( {
@@ -17,6 +18,7 @@ import { ResolveMovieFromIdPipe } from './pipes/resolve-movie-from-id.pipe';
     SettingsDialogComponent,
     ExistsInLocalStoragePipe,
     ResolveMovieFromIdPipe,
+    GetGenreByIdPipe,
   ],
   exports: [
     CommonModule,
