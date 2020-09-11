@@ -2,7 +2,7 @@
   <ng-container *ngIf="movie$ | async as movie; else loading">
     <ng-container *ngIf="movie; else noData">
       <div class="row">
-        <h1 class="col-12">{{ movie.title }}</h1>
+        <h1 class="col-12 col-12 my-4 mx-3">{{ movie.title }}</h1>
       </div>
       <div class="row">
         <div class="col-5">
@@ -32,22 +32,32 @@
               </div>
               <div class="row">
                 <mat-chip-list aria-label="movie-genres">
-                  <mat-chip *ngFor="let genre of movie.genres">{{genre.name}}</mat-chip>
+                  <mat-chip
+                    class="genre-chip"
+                    [routerLink]="'/genre/' + genre.id"
+                    *ngFor="let genre of movie.genres"
+                    >{{ genre.name }}</mat-chip
+                  >
                 </mat-chip-list>
               </div>
             </div>
-            <mat-progress-spinner
-              color="accent"
-              mode="determinate"
-              value="{{ movie.vote_average * 10 }}"
-            >
-              <div class="movie-vote">
-                {{ movie.vote_average * 10 }}
+            <div class="col-4">
+              <div class="movie-vote-box">
+                <mat-progress-spinner
+                class="movie-vote-progress"
+                  color="accent"
+                  mode="determinate"
+                  value="{{ movie.vote_average * 10 }}"
+                >
+                </mat-progress-spinner>
+                <div class="movie-vote">
+                  {{ movie.vote_average * 10 }}%
+                </div>
               </div>
-            </mat-progress-spinner>
+            </div>
           </div>
 
-          <div class="row">
+          <div class="row mt-3">
             <p class="movie-overview">
               {{
                 movie.overview
@@ -55,9 +65,6 @@
                   : ("general.noOverview" | translate)
               }}
             </p>
-            <span>
-              <mat-chip></mat-chip>
-            </span>
           </div>
         </div>
       </div>

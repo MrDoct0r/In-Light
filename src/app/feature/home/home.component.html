@@ -9,7 +9,7 @@
         <h2 class="col-12 mt-3">{{ "home.topRated" | translate }}</h2>
         <div class="col-12">
           <div class="row">
-            <app-tiles *ngFor="let movie of topRatedMovies.results | slice: 0:5" class="col-md-3 col-12 p-0"
+            <app-tiles *ngFor="let movie of topRatedMovies.results | slice: 0:8" class="col-md-3 col-12 p-0"
                        [movie]="movie"></app-tiles>
           </div>
         </div>
@@ -23,7 +23,7 @@
         <h2 class="col-12 mt-3">{{ "home.mostPopular" | translate }}</h2>
         <div class="col-12">
           <div class="row">
-            <app-tiles class="col-md-3 col-12 p-0" *ngFor="let movie of popularMovies.results | slice: 0:5"
+            <app-tiles class="col-md-3 col-12 p-0" *ngFor="let movie of popularMovies.results | slice: 0:8"
                        [movie]="movie"></app-tiles>
           </div>
         </div>
@@ -37,7 +37,7 @@
         <h2 class="col-12 mt-3">{{ "home.lastAdded" | translate }}</h2>
         <div class="col-12">
           <div class="row">
-            <app-tiles class="col-md-3 col-12 p-0" *ngFor="let movie of latestMovies.results | slice: 0:5" [movie]="movie"></app-tiles>
+            <app-tiles class="col-md-3 col-12 p-0" *ngFor="let movie of latestMovies.results | slice: 0:8" [movie]="movie"></app-tiles>
           </div>
         </div>
       </ng-container>
